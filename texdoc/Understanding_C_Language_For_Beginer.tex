@@ -745,7 +745,7 @@ int main()
 
 输出结果：
 \begin{lstlisting}
-int * (__cdecl*(__cdecl*(__cdecl*)(int * *,int *))(double,char))(float,__int64 *)
+int * (__cdecl*(__cdecl*(__cdecl*)(int * *,int *))(double,char))(float,__int64 *) 
 请按任意键继续. . .
 \end{lstlisting}
 
@@ -759,7 +759,7 @@ int * (__cdecl*(__cdecl*(__cdecl*)(int * *,int *))(double,char))(float,__int64 *
 
 void swap(int a, int b)
 {
-	// 交换a、b的值
+	// 交换 a 、 b 的值
 	int t = a;
 	a = b;
 	b = t;
@@ -870,7 +870,7 @@ swap( pa, pb);
 
 void swap(int &c, int &d)
 {
-	// 交换c、d的值
+	// 交换 c 、 d 的值
 	int t = c;
 	c = d;
 	d = t;
@@ -943,7 +943,7 @@ for( i = 1; i < 10; i++ )
 {	
 	// balabala...
 }
-int i; // multiple initialization(多重定义)
+int i; // multiple initialization （多重定义）
 for( i = 1; i < 10; i++ )
 {	
 	// HelloKitty
@@ -958,7 +958,7 @@ for( i = 1; i < 10; i++ )
 \subsection{什么是工程}
 许多人在Windows中初学C语言，用的是VC/VS之类的\kw{集成开发环境（IDE）}。当我们在里面写代码之前要做什么？——先创建\kw{工程（project，又译作项目）}，然后再在这个项目中创建源文件，才开始写代码。那么工程/项目是干什么用的？
 
-试想想，如果没有IDE，那么你应该怎么编译你的源文件？那就是在\kw{命令行}\footnote{例如Windows上的“命令提示符”(cmd)和Linux上的shell}中键入相应的编译命令，生成目标文件，然后再键入链接命令，生成可执行文件（参见第\pageref{fig:cmpsys}页的图 \ref{fig:cmpsys}）。那么我们怎么样才能不打这些编译链接参数呢？那就是预先把编译参数告诉计算机，让它每次按这个流程来编译链接。于是一种方法产生了，这就是工业化生产软件至今常用的技术——Makefile，它是一个文件，编译链接的参数都写在里面。那么如何更傻瓜化一点把Makefile的技术的集成到IDE 中呢？这就是\kw{工程文件/项目文件（project file）}。其实，工程文件/项目文件就是Makefile的一个变种\footnote{这么说其实也不准确，但初学者就先这么理解吧。}，只不过它的语法非常地模式化，这样更有利于IDE的解析。如果不建立工程，就单单打开了c或cpp文件，IDE怎么知道您的编译要求是什么呢？
+试想想，如果没有IDE，那么你应该怎么编译你的源文件？那就是在\kw{命令行}\footnote{例如Windows上的“命令提示符”(cmd)和Linux上的shell。}中键入相应的编译命令，生成目标文件，然后再键入链接命令，生成可执行文件（参见第\pageref{fig:cmpsys}页的图 \ref{fig:cmpsys}）。那么我们怎么样才能不打这些编译链接参数呢？那就是预先把编译参数告诉计算机，让它每次按这个流程来编译链接。于是一种方法产生了，这就是工业化生产软件至今常用的技术——Makefile，它是一个文件，编译链接的参数都写在里面。那么如何更傻瓜化一点把Makefile的技术的集成到IDE 中呢？这就是\kw{工程文件/项目文件（project file）}。其实，工程文件/项目文件就是Makefile的一个变种\footnote{这么说其实也不准确，但初学者就先这么理解吧。}，只不过它的语法非常地模式化，这样更有利于IDE的解析。如果不建立工程，就单单打开了c或cpp文件，IDE怎么知道您的编译要求是什么呢？
 
 第二个问题是注意我们建立工程的目录，我们建立工程目录时，在弹出来的向导对话框中有个目录，VS2012如下图所示，我们再新建的文件一般就是在这个目录下可以找到，所以不要每次都新建一个项目，这样既浪费了磁盘空间，也不利于查找。我个人推荐的做法就是每次新建一个文件加入该目录，老的文件就全部注释掉，注释很简单，一对/* */就可以搞定了，VS2012还有一对快捷键，先选中代码，一般全选可以按Ctrl+A，然后是注释，先按Ctrl+K，再按Ctrl+C，就注释了，如果要取消注释，可以先选中代码，先按Ctrl+K，再按Ctrl+U。如果你按下Ctrl+K，又不想注释，可以按下Esc取消掉，一般在VS的状态栏的左下角都会有提示的。
 
@@ -973,7 +973,7 @@ for( i = 1; i < 10; i++ )
 说起代码风格，这个各种奇葩的风格都有，只要看上去一致、美观都行，以下列出了ANSI 风格和K\&R风格，主要区别在与大括号，各有所长，不影响正常阅读，个人认为风格之争没必要的，您可以随意选择。
 
 \begin{lstlisting}
-// ANSI风格
+// ANSI 风格
 #include <stdio.h>
 
 int main(void)
@@ -987,10 +987,10 @@ int main(void)
 	return 0;
 }
 
-// K&R风格
-int main(void){ // 大括号写在函数头的旁边
+// K&R 风格
+int main(void) { // 大括号写在函数头的旁边
 	int a = 5;
-	while( a < 100 ){ // 大括号写在旁边
+	while( a < 100 ) { // 大括号写在旁边
 		printf( "%d\n", a );
 		a += 10;
 	}
@@ -1080,7 +1080,7 @@ else()
 \label{fig:C99main}
 \end{figure}
 
-这里说的很清楚，只有\verb|int main(void)|和\verb|int main(int argc, char *argv[])|是C99标准明文规定的，其它原型的都是编译器扩展。常见的C编译器常见的非标准扩展中，main函数还有第三个参数char *env，用于传入一些操作系统的环境变量，所以在某些时候可能看到int main(int argc, char *argv[], char *env[])，但这也是非标准的，所以不建议使用\footnote{如果到了某天您成了大神，一定要传环境变量，记得我曾在此写下的，请使用getenv()函数，当然，也请加上头文件<stdlib.h>。}。
+这里说的很清楚，只有\verb|int main(void)|和\verb|int main(int argc, char *argv[])|是C99标准明文规定的，其它原型的都是编译器扩展。常见的C编译器常见的非标准扩展中，main函数还有第三个参数char *env，用于传入一些操作系统的环境变量，所以在某些时候可能看到int main(int argc, char *argv[], char *envp[])和int main(int argc, char *argv[], char *envp[], char *apple[])，但这也是非标准的，所以不建议使用\footnote{如果到了某天您成了大神，一定要传环境变量，记得我曾在此写下的，请使用getenv()函数，当然，也请加上头文件<stdlib.h>。}。
 
 我看到很多新手，在写主函数的时候，写成void main()的形式，这种形式非常离谱，也非常不合规定，尤其到了C++中：
 
@@ -1106,10 +1106,10 @@ else()
 
 在此我并不想阐述主函数的参数、返回值的具体作用，但是希望大家要养成一个遵守使用标准C或标准C++的习惯，即使以前写的是void main，也希望您能纠正过来，严谨的态度是很重要的。
 
-\subsection{标准C和标准C++}
+\subsection{C标准和C++标准}
 
 \begin{itemize}
-\item 《ISO/IEC 9899:1989》，1989年发布，简称 ISO C 89 标准，也叫ANSI C 标准。
+\item 《ANSI X3.159-1989》，1989年发布，简称C89标准或ANSI C标准。后来，在1990年，国际标准化组织ISO通过了C89标准，命名为《ISO/IEC 9899:1990》，简称C90标准。所以C89标准与C90标准完全等同，不过业界更常使用“C89标准”这个术语，很少出现“C90标准”这个术语。
 
 目前所有C编译器都支持C89标准。
 \item 《ISO/IEC 9899:1999》，1999年发布，简称 ISO C 99 标准。
@@ -1130,9 +1130,16 @@ Intel C++、g++、clang++、Borland C++等等，都支持C++98标准。微软Vis
 
 C++03标准是C++98标准的“bug修复版”，与C++98标准几乎没什么区别。所以说支持C++98标准和支持C++03标准的编译器没有什么区别。
 
-\item 《ISO/IEC 14882:2011》，2011年发布，简称 ISO C++ 11 标准。
+\item 《ISO/IEC 14882:2011》，2011年8月12日发布，简称 ISO C++ 11 标准。
 
 g++、clang++等等，都支持C++11标准。Intel C++ 2013 部分支持C++11标准。微软Visual Studio 2010开始部分支持C++11标准\footnote{在C++11标准出来之前，ISO就发布了这套标准的草案，草案名叫C++0x，所以Visual Studio 2010实际上支持的是C++0x 草案。}，Visual Studio 2012基本上支持C++11标准，当然Visual Studio 2012对C++11标准的支持的还是有很多bug的\footnote{例如这个bug：\href{http://connect.microsoft.com/VisualStudio/feedback/details/804635/bug-in-lambda-expression-in-visual-studio-2012-update-3}{Visual Studio 2012 在 C++ 11 的 Lambda 表达式的支持上的bug}。不知道您看这篇文章时是否修复了}。
+
+\item 《ISO/IEC 14882:2014》，2014年8月18日发布，简称 ISO C++ 14 标准。
+
+C++14标准只是C++11标准的一些功能性的补充，对C++11标准的一些过于严格的限制进行适当的放松，可以说仅仅一个“微调”，与C++11标准没有太大的区别。
+
+VS2013支持一小部分的C++14标准\footnote{参数资料：\url{http://www.infoq.com/news/2013/11/VC13_CTP1} }。clang++ 3.4已经完全实现了全部的C++14标准\footnote{参考资料： \url{http://clang.llvm.org/cxx_status.html} }。
+
 \end{itemize}
 
 最后说下如何获得C或者C++标准的文档，请登录\url{http://www.ansi.org/}联机购买一本电子副本(PDF)。呃，先说明，要花money的，您懂的。
